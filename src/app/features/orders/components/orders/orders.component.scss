@@ -1,0 +1,21 @@
+:host {
+  ::ng-deep {
+    mat-card-header {
+      .mat-mdc-card-header-text {
+        width: 100% !important;
+      }
+    }
+
+    .order-card {
+      width: 1400px;
+    }
+
+    .mat-mdc-card-subtitle {
+      width: 100%;
+    }
+
+    .mat-mdc-card-content {
+      padding: 20px 0px;
+    }
+  }
+}

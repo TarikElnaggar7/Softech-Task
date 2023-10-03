@@ -1,0 +1,45 @@
+<ng-container *ngIf="orders$ | async as orders">
+  <div class="d-grid justify-content-center">
+    <mat-card class="order-card p-4 m-2" *ngFor="let item of orders">
+      <mat-card-header class="card-header">
+        <mat-card-title class="card-subtitle w-100">
+          <div class="d-flex flex-row justify-content-between w-100">
+            <span class="justify-content-start">#{{ item.OrderId }}</span>
+            <span class="justify-content-end">
+              Payment Type : {{ item.PaymentType }}</span
+            >
+          </div>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <div class="d-flex flex-row justify-content-between w-100">
+            <span class="justify-content-start">{{
+              item.OrderDate | date
+            }}</span>
+            <span class="justify-content-end">
+              User Name : {{ item.UserId }}</span
+            >
+          </div>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-accordion class="shadow bg-white accordion">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Products </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ng-container *ngFor="let product of item.Products">
+              <div class="d-flex flex-row justify-content-around w-100">
+                <p class="justify-content-start">
+                  Product Id : {{ product.ProductId }}
+                </p>
+                <p class="justify-content-end">
+                  Quantity : {{ product.Quantity }}
+                </p>
+              </div>
+            </ng-container>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-container>
