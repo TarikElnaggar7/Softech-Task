@@ -1,0 +1,26 @@
+<div class="grid">
+  <mat-grid-list cols="4" rowHeight="1:1" *ngIf="products$ | async as products">
+    <mat-grid-tile *ngFor="let item of products">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ item.ProductName }}</mat-card-title>
+          <mat-card-subtitle>{{ item.ProductPrice }}</mat-card-subtitle>
+        </mat-card-header>
+        <div
+          class="image"
+          [ngStyle]="{ 'background-image': 'url(' + item.ProductImg + ')' }"
+        >
+          <div class="badge" *ngIf="item.AvailablePieces < 10">
+            Limited Quantity
+          </div>
+        </div>
+
+        <mat-card-content> </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Add Products</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
