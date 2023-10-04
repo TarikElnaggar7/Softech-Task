@@ -15,6 +15,7 @@ export class OrdersComponent {
   ordersService = inject(OrdersService);
 
   orders$: Observable<OrdersInterface[]> = this.ordersService.getOrders().pipe(
+    map((orders) => orders.sort((a, b) => b.OrderId - a.OrderId)),
     switchMap((orders) =>
       forkJoin(
         orders.map((order) => this.usersService.getUserById(order.UserId))
