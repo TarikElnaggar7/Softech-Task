@@ -13,5 +13,5 @@ export interface OrderedProduct {
 
 export enum PaymentType {
   online = 'Online',
-  COP = 'Cash On Delivery',
+  Cash = 'Cash On Delivery',
 }
